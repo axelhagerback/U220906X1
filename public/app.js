@@ -1,56 +1,90 @@
 console.log('IT IS')
 
 build();
+calculatorWindow();
 
 function build() {
-    const targetCalc = document.getElementById('app');
     const divCalc = document.createElement('div');
     divCalc.setAttribute('id', 'calculator');
     divCalc.className = 'border';
-    targetCalc.appendChild(divCalc);
+    app.appendChild(divCalc);
 
-    const targetSett = document.getElementById('app');
     const divSett = document.createElement('div');
     divSett.setAttribute('id', 'settings');
     divSett.className = 'border';
-    targetSett.appendChild(divSett);
+    app.appendChild(divSett);
 
-    const targetDivCalc = document.getElementById('calculator');
+    
     const titleCalc = document.createElement('h1');
     titleCalc.innerHTML = "Calculator";
-    targetDivCalc.appendChild(titleCalc);
+    divCalc.appendChild(titleCalc);
 
-    const targetDivSett = document.getElementById('settings');
+    
     const titleSett = document.createElement('h1');
     titleSett.innerHTML = "Settings";
-    targetDivSett.appendChild(titleSett);
+    divSett.appendChild(titleSett);
+
+    calculatorWindow(divCalc);
 }
+
+function calculatorWindow(divCalc) {
+    const numberInput1 = document.createElement('input');
+    numberInput1.setAttribute('id', 'number1')
+    divCalc.appendChild(numberInput1);
+
+
+
+
+    //Form elements must have labels: Element has no title attribute Element has no placeholder attribute
+    const numberLabel2 = document.createElement('label');
+    numberLabel2.setAttribute('id', 'label2');
+    numberLabel2.setAttribute('for', 'number2');
+    divCalc.appendChild(numberLabel2);
+
+    const numberInput2 = document.createElement('input');
+    numberInput2.setAttribute('id', 'number2');
+    numberInput2.setAttribute('name', 'number2');
+    divCalc.appendChild(numberInput2);
+
+
+
+
+
     
+    const btnAdd = document.createElement('button');
+    btnAdd.setAttribute('id', 'addition');
+    btnAdd.innerText = '+';
+    divCalc.appendChild(btnAdd);
+
+    const btnSub = document.createElement('button');
+    btnSub.setAttribute('id', 'subtraction');
+    btnSub.innerText = '-';
+    divCalc.appendChild(btnSub);
+
+    const btnMul = document.createElement('button');
+    btnMul.setAttribute('id', 'multiplication');
+    btnMul.innerText = '*';
+    divCalc.appendChild(btnMul);
+    
+    const btnDiv = document.createElement('button');
+    btnDiv.setAttribute('id', 'division');
+    btnDiv.innerText = '/';
+    divCalc.appendChild(btnDiv);
+
+    const textarea = document.createElement('textarea');
+    textarea.setAttribute('id', 'result');
+    textarea.disabled = true;
+    divCalc.appendChild(textarea);
+
+    const btnClear = document.createElement('button');
+    btnClear.setAttribute('id', 'clear');
+    btnClear.innerText = 'Clear';
+    divCalc.appendChild(btnClear);
 
 
-
-
-
-
-//console.log('sayHello called ...');
-   // const contactPersonName = contactPerson.value;
-   // console.log(contactPersonName);
-    // document.getElementById('namePlaceHolder').innerHTML = contactPersonName;
-
+}
 
     
-
-    //skapa en div tagg för kalkylatorn
-
- /* document.onload = addElement();
-
-    function addElement () {
-        const newDiv = document.createElement('div');
-
-        const newContent = document.createTextNode('Hi there and greetings!');
-
-        newDiv.appendChild(newContent);
-
-        const currentDiv = document.getElementById('app');
-        document.body.insertBefore(newDiv, currentDiv);
-    } */
+function settingsWindow() {
+    const colorOption = document.createElement('option');
+}
