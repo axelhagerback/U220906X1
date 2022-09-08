@@ -5,12 +5,10 @@ build();
 function build() {
     const divCalc = document.createElement('div');
     divCalc.setAttribute('id', 'calculator');
-    divCalc.className = 'border';
     app.appendChild(divCalc);
 
     const divSett = document.createElement('div');
     divSett.setAttribute('id', 'settings');
-    divSett.className = 'border';
     app.appendChild(divSett);
 
     
@@ -25,27 +23,22 @@ function build() {
 
     calculatorWindow(divCalc, divSett);
 
-    settingsWindow(divSett);
+    settingsWindow(divSett, divCalc);
 }
 
 function calculatorWindow(divCalc, divSett) {
 
     const numberInput1 = document.createElement('input');
-    numberInput1.setAttribute('id', 'number1')
+    numberInput1.setAttribute('id', 'number1');
+    numberInput1.setAttribute('type', 'number');
+    numberInput1.autofocus = true;
     divCalc.appendChild(numberInput1);
 
-
-
-
     //Form elements must have labels: Element has no title attribute Element has no placeholder attribute
-    const numberLabel2 = document.createElement('label');
-    numberLabel2.setAttribute('id', 'label2');
-    numberLabel2.setAttribute('for', 'number2');
-    divCalc.appendChild(numberLabel2);
 
     const numberInput2 = document.createElement('input');
     numberInput2.setAttribute('id', 'number2');
-    numberInput2.setAttribute('name', 'number2');
+    numberInput1.setAttribute('type', 'number');
     divCalc.appendChild(numberInput2);
 
 
@@ -92,21 +85,7 @@ function calculatorWindow(divCalc, divSett) {
 }
 
     
-function settingsWindow(divSett) {
-
-   /*  const dropdown = document.createElement('select');
-
-    app.appendChild(dropdown);
-
-    options = ["Blue", "Yellow", "Green"];
-
-
-    options.forEach((option) => {
-        tag = document.createElement("option");
-        tag.innerHTML = option;
-        dropdown.appendChild(tag);
-    }) */
-
+function settingsWindow(divSett, divCalc) {
 
     const selectColor = document.createElement('select');
     selectColor.setAttribute('name', 'selectColor');
@@ -114,21 +93,26 @@ function settingsWindow(divSett) {
     const colorGrey = document.createElement('option');
     colorGrey.setAttribute('value', 'grey');
     colorGrey.innerHTML = 'Grey';
+    selectColor.onchange = (event) => divCalc.className = event.target.value;
     selectColor.appendChild(colorGrey);
 
     const colorBlue = document.createElement('option');
     colorBlue.setAttribute('value', 'blue');
     colorBlue.innerHTML = 'Blue';
+    selectColor.onchange = (event) => divCalc.className = event.target.value;
     selectColor.appendChild(colorBlue);
 
     const colorYellow = document.createElement('option');
     colorYellow.setAttribute('value', 'yellow');
     colorYellow.innerHTML = 'Yellow';
+    selectColor.onchange = (event) => divCalc.className = event.target.value;
     selectColor.appendChild(colorYellow);
 
     //onclick på select som läser av vad som är valt
+    //colorGrey.onclick = () => divCalc.style.backgroundColor = Grey;
 
     divSett.appendChild(selectColor);
+
 
 
     const selectFontSize = document.createElement('select');

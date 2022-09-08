@@ -3,10 +3,29 @@ body {
 }
 
 
-.border {
+#settings {
     border: 3px solid black;
     padding: 5px;
     margin-bottom: 5px;
 }
 
+#calculator {
+    border: 3px solid black;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+.grey {
+    background-color: grey;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
 
