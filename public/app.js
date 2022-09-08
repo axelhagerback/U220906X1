@@ -1,7 +1,6 @@
 console.log('IT IS')
 
 build();
-calculatorWindow();
 
 function build() {
     const divCalc = document.createElement('div');
@@ -24,10 +23,13 @@ function build() {
     titleSett.innerHTML = "Settings";
     divSett.appendChild(titleSett);
 
-    calculatorWindow(divCalc);
+    calculatorWindow(divCalc, divSett);
+
+    settingsWindow(divSett);
 }
 
-function calculatorWindow(divCalc) {
+function calculatorWindow(divCalc, divSett) {
+
     const numberInput1 = document.createElement('input');
     numberInput1.setAttribute('id', 'number1')
     divCalc.appendChild(numberInput1);
@@ -81,10 +83,72 @@ function calculatorWindow(divCalc) {
     btnClear.innerText = 'Clear';
     divCalc.appendChild(btnClear);
 
+    const hideShowButton = document.createElement('button');
+    hideShowButton.innerHTML = 'Hide/show';
+    hideShowButton.onclick = () => divSett.hidden = !divSett.hidden;
+    divCalc.appendChild(hideShowButton);
+
 
 }
 
     
-function settingsWindow() {
-    const colorOption = document.createElement('option');
+function settingsWindow(divSett) {
+
+   /*  const dropdown = document.createElement('select');
+
+    app.appendChild(dropdown);
+
+    options = ["Blue", "Yellow", "Green"];
+
+
+    options.forEach((option) => {
+        tag = document.createElement("option");
+        tag.innerHTML = option;
+        dropdown.appendChild(tag);
+    }) */
+
+
+    const selectColor = document.createElement('select');
+    selectColor.setAttribute('name', 'selectColor');
+   
+    const colorGrey = document.createElement('option');
+    colorGrey.setAttribute('value', 'grey');
+    colorGrey.innerHTML = 'Grey';
+    selectColor.appendChild(colorGrey);
+
+    const colorBlue = document.createElement('option');
+    colorBlue.setAttribute('value', 'blue');
+    colorBlue.innerHTML = 'Blue';
+    selectColor.appendChild(colorBlue);
+
+    const colorYellow = document.createElement('option');
+    colorYellow.setAttribute('value', 'yellow');
+    colorYellow.innerHTML = 'Yellow';
+    selectColor.appendChild(colorYellow);
+
+    //onclick på select som läser av vad som är valt
+
+    divSett.appendChild(selectColor);
+
+
+    const selectFontSize = document.createElement('select');
+    selectFontSize.setAttribute('name', 'selectFontSize');
+   
+    const fontSize12 = document.createElement('option');
+    fontSize12.setAttribute('value', 'fontSizeSmall');
+    fontSize12.innerHTML = '12';
+    selectFontSize.appendChild(fontSize12);
+
+    const fontSize20 = document.createElement('option');
+    fontSize20.setAttribute('value', 'fontSizeMedium');
+    fontSize20.innerHTML = '20';
+    selectFontSize.appendChild(fontSize20);
+
+    const fontSize30 = document.createElement('option');
+    fontSize30.setAttribute('value', 'fontSizeLarge');
+    fontSize30.innerHTML = '30';
+    selectFontSize.appendChild(fontSize30);
+
+    divSett.appendChild(selectFontSize);
+
 }
