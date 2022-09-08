@@ -15,7 +15,9 @@ body {
     margin-bottom: 5px;
 }
 
-
+.pink {
+    background-color: pink;
+}
 
 .grey {
     background-color: grey;
@@ -29,3 +31,18 @@ body {
     background-color: yellow;
 }
 
+.fontSizeSmall {
+    font-size: 12px;
+}
+
+.fontSizeMedium {
+    font-size: 20px;
+}
+
+.fontSizeLarge {
+    font-size: 30px;
+}
+
+#textarea {
+    font-size: 50px;
+}
